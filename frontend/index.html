@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NaijaHelp - Find Help Near You</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">🇳🇬 NaijaHelp</a>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="login.html" id="navLogin">Login</a>
+        <a href="register.html" id="navRegister">Register</a>
+        <a href="dashboard.html" id="navDashboard" style="display:none;">Dashboard</a>
+        <button id="navLogout" style="display:none;" class="btn btn-outline btn-sm">Logout</button>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Find Help Near You</h1>
+      <p>Discover hospitals, pharmacies, police stations, mechanics, electricians and more across Nigeria.</p>
+
+      <!-- Search Box -->
+      <div class="search-box">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Search by name, type or location…"
+          autocomplete="off"
+          aria-label="Search services"
+        >
+        <button id="searchBtn" class="btn btn-primary">Search</button>
+      </div>
+
+      <!-- Category Buttons -->
+      <div class="categories" id="categories">
+        <button class="cat-btn active" data-category="All">All</button>
+        <button class="cat-btn" data-category="Hospital">🏥 Hospital</button>
+        <button class="cat-btn" data-category="Pharmacy">💊 Pharmacy</button>
+        <button class="cat-btn" data-category="Police">👮 Police</button>
+        <button class="cat-btn" data-category="Fire Station">🚒 Fire Station</button>
+        <button class="cat-btn" data-category="Mechanic">🔧 Mechanic</button>
+        <button class="cat-btn" data-category="Electrician">⚡ Electrician</button>
+        <button class="cat-btn" data-category="Plumber">🪠 Plumber</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results count -->
+  <section class="results-bar container">
+    <p id="resultsCount" class="results-count"></p>
+    <select id="cityFilter" class="select-filter" aria-label="Filter by city">
+      <option value="">All Cities</option>
+      <option value="Lagos">Lagos</option>
+      <option value="Abuja">Abuja</option>
+      <option value="Port Harcourt">Port Harcourt</option>
+      <option value="Kano">Kano</option>
+      <option value="Ibadan">Ibadan</option>
+      <option value="Enugu">Enugu</option>
+      <option value="Jalingo">Jalingo</option>
+      <option value="Kaduna">Kaduna</option>
+    </select>
+  </section>
+
+  <!-- Service Cards Grid -->
+  <main class="container">
+    <div id="serviceList" class="service-grid" role="list" aria-live="polite">
+      <!-- Cards injected by JS -->
+    </div>
+    <p id="emptyMessage" class="empty-msg" style="display:none;">No services found. Try a different search.</p>
+  </main>
+
+  <!-- Emergency Banner -->
+  <section class="emergency-banner">
+    <div class="container">
+      <h2>🚨 Emergency Numbers</h2>
+      <div class="emergency-grid">
+        <div class="emergency-card">
+          <span class="em-icon">🚔</span>
+          <span class="em-label">Police</span>
+          <a href="tel:112" class="em-number">112</a>
+        </div>
+        <div class="emergency-card">
+          <span class="em-icon">🚒</span>
+          <span class="em-label">Fire Service</span>
+          <a href="tel:08032000011" class="em-number">080 3200 0011</a>
+        </div>
+        <div class="emergency-card">
+          <span class="em-icon">🚑</span>
+          <span class="em-label">Ambulance</span>
+          <a href="tel:767" class="em-number">767</a>
+        </div>
+        <div class="emergency-card">
+          <span class="em-icon">🏥</span>
+          <span class="em-label">NEMA</span>
+          <a href="tel:0800NEMA" class="em-number">0800-NEMA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 NaijaHelp. Connecting Nigerians to essential services.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - NaijaHelp</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">🇳🇬 NaijaHelp</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="dashboard.html" class="active" id="navDashboard">Dashboard</a>
+        <button id="navLogout" class="btn btn-outline btn-sm">Logout</button>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+
+  <!-- Dashboard layout -->
+  <main class="dashboard container">
+
+    <!-- Welcome bar -->
+    <div class="dash-welcome">
+      <div>
+        <h1>Welcome, <span id="dashUserName">User</span> 👋</h1>
+        <p id="dashUserEmail" class="dash-email"></p>
+      </div>
+      <button class="btn btn-primary" id="openAddModal">+ Add Service</button>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="dash-stats">
+      <div class="stat-card">
+        <span class="stat-number" id="statTotal">0</span>
+        <span class="stat-label">My Services</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="statVerified">0</span>
+        <span class="stat-label">Verified</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="statPending">0</span>
+        <span class="stat-label">Pending</span>
+      </div>
+    </div>
+
+    <!-- Alert -->
+    <div id="dashAlert" class="alert" role="alert" aria-live="polite" style="display:none;"></div>
+
+    <!-- Tabs -->
+    <div class="dash-tabs">
+      <button class="tab-btn active" data-tab="myServices">My Services</button>
+      <button class="tab-btn" data-tab="addService">Add Service</button>
+    </div>
+
+    <!-- My Services Tab -->
+    <section id="tab-myServices" class="tab-pane active">
+      <h2>My Submitted Services</h2>
+      <div id="myServicesList" class="service-grid">
+        <p class="loading-text">Loading your services…</p>
+      </div>
+    </section>
+
+    <!-- Add Service Tab -->
+    <section id="tab-addService" class="tab-pane">
+      <h2>Add a New Service</h2>
+      <form id="addServiceForm" class="service-form" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="svcName">Service Name *</label>
+            <input type="text" id="svcName" placeholder="e.g. Jalingo Specialist Hospital" required>
+            <span class="field-error" id="svcNameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="svcCategory">Category *</label>
+            <select id="svcCategory" required>
+              <option value="">Select category</option>
+              <option value="Hospital">Hospital</option>
+              <option value="Pharmacy">Pharmacy</option>
+              <option value="Police">Police</option>
+              <option value="Fire Station">Fire Station</option>
+              <option value="Mechanic">Mechanic</option>
+              <option value="Electrician">Electrician</option>
+              <option value="Plumber">Plumber</option>
+            </select>
+            <span class="field-error" id="svcCategoryError"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="svcDescription">Description</label>
+          <textarea id="svcDescription" rows="3" placeholder="Brief description of the service…"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="svcPhone">Phone Number</label>
+            <input type="tel" id="svcPhone" placeholder="080XXXXXXXX">
+          </div>
+          <div class="form-group">
+            <label for="svcEmail">Email</label>
+            <input type="email" id="svcEmail" placeholder="service@example.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="svcAddress">Address</label>
+          <input type="text" id="svcAddress" placeholder="Street address">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="svcCity">City *</label>
+            <input type="text" id="svcCity" placeholder="e.g. Jalingo" required>
+            <span class="field-error" id="svcCityError"></span>
+          </div>
+          <div class="form-group">
+            <label for="svcState">State</label>
+            <select id="svcState">
+              <option value="">Select state</option>
+              <option value="Abia">Abia</option>
+              <option value="Adamawa">Adamawa</option>
+              <option value="Akwa Ibom">Akwa Ibom</option>
+              <option value="Anambra">Anambra</option>
+              <option value="Bauchi">Bauchi</option>
+              <option value="Bayelsa">Bayelsa</option>
+              <option value="Benue">Benue</option>
+              <option value="Borno">Borno</option>
+              <option value="Cross River">Cross River</option>
+              <option value="Delta">Delta</option>
+              <option value="Ebonyi">Ebonyi</option>
+              <option value="Edo">Edo</option>
+              <option value="Ekiti">Ekiti</option>
+              <option value="Enugu">Enugu</option>
+              <option value="FCT">FCT (Abuja)</option>
+              <option value="Gombe">Gombe</option>
+              <option value="Imo">Imo</option>
+              <option value="Jigawa">Jigawa</option>
+              <option value="Kaduna">Kaduna</option>
+              <option value="Kano">Kano</option>
+              <option value="Katsina">Katsina</option>
+              <option value="Kebbi">Kebbi</option>
+              <option value="Kogi">Kogi</option>
+              <option value="Kwara">Kwara</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Nasarawa">Nasarawa</option>
+              <option value="Niger">Niger</option>
+              <option value="Ogun">Ogun</option>
+              <option value="Ondo">Ondo</option>
+              <option value="Osun">Osun</option>
+              <option value="Oyo">Oyo</option>
+              <option value="Plateau">Plateau</option>
+              <option value="Rivers">Rivers</option>
+              <option value="Sokoto">Sokoto</option>
+              <option value="Taraba">Taraba</option>
+              <option value="Yobe">Yobe</option>
+              <option value="Zamfara">Zamfara</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="addServiceBtn">
+            <span id="addServiceBtnText">Submit Service</span>
+            <span id="addServiceSpinner" class="btn-spinner" style="display:none;"></span>
+          </button>
+          <button type="reset" class="btn btn-outline">Clear</button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 NaijaHelp.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/services.js"></script>
+</body>
+</html>

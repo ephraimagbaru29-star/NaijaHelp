@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - NaijaHelp</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">🇳🇬 NaijaHelp</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="login.html" id="navLogin">Login</a>
+        <a href="register.html" id="navRegister">Register</a>
+        <a href="dashboard.html" id="navDashboard" style="display:none;">Dashboard</a>
+        <button id="navLogout" style="display:none;" class="btn btn-outline btn-sm">Logout</button>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+
+  <!-- Page Title -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>All Services</h1>
+      <p>Browse and filter services across Nigeria</p>
+    </div>
+  </section>
+
+  <!-- Filters Bar -->
+  <section class="filters-bar container">
+    <div class="filters-inner">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search services…"
+        class="filter-search"
+        aria-label="Search services"
+      >
+      <select id="categoryFilter" class="select-filter" aria-label="Filter by category">
+        <option value="">All Categories</option>
+        <option value="Hospital">Hospital</option>
+        <option value="Pharmacy">Pharmacy</option>
+        <option value="Police">Police</option>
+        <option value="Fire Station">Fire Station</option>
+        <option value="Mechanic">Mechanic</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Plumber">Plumber</option>
+      </select>
+      <select id="cityFilter" class="select-filter" aria-label="Filter by city">
+        <option value="">All Cities</option>
+        <option value="Lagos">Lagos</option>
+        <option value="Abuja">Abuja</option>
+        <option value="Port Harcourt">Port Harcourt</option>
+        <option value="Kano">Kano</option>
+        <option value="Ibadan">Ibadan</option>
+        <option value="Enugu">Enugu</option>
+        <option value="Jalingo">Jalingo</option>
+        <option value="Kaduna">Kaduna</option>
+      </select>
+      <button id="clearFilters" class="btn btn-outline btn-sm">Clear</button>
+    </div>
+    <p id="resultsCount" class="results-count"></p>
+  </section>
+
+  <!-- Service Grid -->
+  <main class="container services-page-main">
+    <!-- Loading spinner -->
+    <div id="loadingSpinner" class="spinner-wrap">
+      <div class="spinner" role="status" aria-label="Loading"></div>
+      <p>Loading services…</p>
+    </div>
+
+    <div id="serviceList" class="service-grid" role="list" aria-live="polite"></div>
+    <p id="emptyMessage" class="empty-msg" style="display:none;">No services match your filters.</p>
+
+    <!-- Add Service CTA -->
+    <div class="add-service-cta" id="addServiceCta" style="display:none;">
+      <p>Can't find what you're looking for?</p>
+      <a href="dashboard.html" class="btn btn-primary">Add a Service</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 NaijaHelp.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+</body>
+</html>

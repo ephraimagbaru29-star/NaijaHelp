@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Environment — NEVER commit real secrets
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp files created during development
+*.py
+extract_*.js
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

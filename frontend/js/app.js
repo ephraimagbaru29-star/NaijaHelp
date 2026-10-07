@@ -8,11 +8,16 @@
 'use strict';
 
 /* ── API base URL ──────────────────────────────────────────────
-   While building the frontend with fake data this is unused.
-   Once the backend is running, set this and call loadServices()
-   instead of using the local SERVICES array.
+   Points to the live backend on Vercel.
+   Replace REPLACE_WITH_YOUR_BACKEND_URL with your actual
+   Vercel backend URL, e.g. https://naijahelp-api.vercel.app
    ─────────────────────────────────────────────────────────── */
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = (
+  window.location.hostname === 'localhost' ||
+  window.location.hostname === '127.0.0.1'
+)
+  ? 'http://localhost:3000/api'           // local dev
+  : 'REPLACE_WITH_YOUR_BACKEND_URL/api'; // production
 
 /* ── Category icon map ─────────────────────────────────────── */
 const CATEGORY_ICONS = {

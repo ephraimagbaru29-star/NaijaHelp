@@ -17,7 +17,7 @@ const API_BASE = (
   window.location.hostname === '127.0.0.1'
 )
   ? 'http://localhost:3000/api'           // local dev
-  : 'REPLACE_WITH_YOUR_BACKEND_URL/api'; // production
+  : 'https://naija-help.vercel.app/api'; // production
 
 /* ── Category icon map ─────────────────────────────────────── */
 const CATEGORY_ICONS = {
